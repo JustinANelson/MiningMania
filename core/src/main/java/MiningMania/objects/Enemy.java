@@ -1,14 +1,14 @@
-package MiningMania.server.Objects;
+package MiningMania.objects;
 
 import java.io.Serializable;
 
-public class Player implements Serializable {
+public class Enemy extends Packet implements Serializable {
     public String name;
 
-    public Player(String name){
+    public Enemy(String name){
         this.name = name;
     }
-    public Player(){
+    public Enemy(){
 
     }
     public String getName() {

@@ -5,7 +5,7 @@ import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
 import com.github.czyzby.websocket.GwtWebSockets;
 
-import MiningMania.MiningMania;
+import MiningMania.client.MiningMania;
 
 /** Launches the GWT application. */
 public class GwtLauncher extends GwtApplication {

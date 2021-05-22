@@ -1,4 +1,4 @@
-package MiningMania;
+package MiningMania.client;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -6,7 +6,7 @@ import com.badlogic.gdx.Screen;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import MiningMania.Objects.Player;
+import MiningMania.client.WebClient;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -43,7 +43,6 @@ public class MiningMania extends Game {
 	}
 	@Override
 	public void create() {
-
 		try {
 			System.out.println("Try connect webclient");
 			c = new WebClient(new URI( "ws://localhost:8887"));

@@ -41,7 +41,7 @@ dependencies {
 	implementation "com.github.tommyettinger:libgdx-utils:$utilsVersion:sources"
 	implementation "com.rafaskoberg.gdx:typing-label:$typingLabelVersion:sources"
 	implementation "com.github.tommyettinger:regexodus:$regExodusVersion:sources"
-
+	implementation "org.java-websocket:Java-WebSocket:1.5.2"
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask

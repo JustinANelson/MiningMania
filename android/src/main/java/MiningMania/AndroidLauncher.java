@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import MiningMania.MiningMania;
+import MiningMania.client.MiningMania;
 
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {

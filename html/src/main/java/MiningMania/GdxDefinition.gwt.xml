@@ -3,7 +3,7 @@
 <module rename-to="html">
 	<source path="" />
 	<inherits name="com.badlogic.gdx.backends.gdx_backends_gwt" />
-	<inherits name="MiningMania.MiningMania" />
+	<inherits name="MiningMania.client.MiningMania" />
 	<inherits name="MiningMania.Shared" />
 	<inherits name="com.github.czyzby.websocket.GdxWebSocket" />
 	<inherits name="com.github.czyzby.websocket.GdxWebSocketGwt" />

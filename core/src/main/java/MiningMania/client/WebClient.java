@@ -1,17 +1,11 @@
-package MiningMania;
+package MiningMania.client;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.handshake.ServerHandshake;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.nio.ByteBuffer;
-
-import MiningMania.Objects.Player;
 
 public class WebClient extends WebSocketClient {
 

@@ -1,4 +1,4 @@
-package MiningMania.Helpers;
+package MiningMania.helpers;
 
 public class Variables {
 
