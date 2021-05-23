@@ -13,9 +13,12 @@ import java.io.ObjectInputStream;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 
+import MiningMania.helpers.Variables;
 import MiningMania.networking.ServerHandleData;
 import MiningMania.objects.Enemy;
 import MiningMania.objects.Player;
+
+import static MiningMania.server.ServerLoop.serverLoop;
 
 /** Launches the server application. */
 public class ServerLauncher extends WebSocketServer {
@@ -78,11 +81,10 @@ public class ServerLauncher extends WebSocketServer {
 		setConnectionLostTimeout(0);
 		setConnectionLostTimeout(100);
 		//Variables.addresses.clear();
-		serverLoop();
-	}
-	public static void serverLoop() {
-		while(running) {
-			System.out.println("Server is Running");
+		try {
+			serverLoop();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 	public static void main(String[] args) throws InterruptedException {
@@ -92,6 +94,7 @@ public class ServerLauncher extends WebSocketServer {
 		String host = "127.0.0.1";
 		int port = 8887;
 		server = new ServerLauncher(new InetSocketAddress(host, port));
+		Variables.running = true;
 		server.run();
 	}
 }
