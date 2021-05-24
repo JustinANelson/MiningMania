@@ -94,7 +94,6 @@ public class ServerLauncher extends WebSocketServer {
 		String host = "127.0.0.1";
 		int port = 8887;
 		server = new ServerLauncher(new InetSocketAddress(host, port));
-		ServerVars.running = true;
 		server.run();
 	}
 }

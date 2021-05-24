@@ -6,10 +6,8 @@ eclipse.project.name = appName + '-console'
 
 dependencies {
 	implementation "com.github.MrStahlfelge.gdx-websockets:core:1.9.10.3"
-	implementation project(':shared')
 	implementation "org.java-websocket:Java-WebSocket:1.5.2"
 	implementation 'org.apache.commons:commons-lang3:3.5'
-	implementation project(path: ':server')
 }
 
 jar {

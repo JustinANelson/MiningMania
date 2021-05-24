@@ -2,6 +2,8 @@ package MiningMania.console;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -20,27 +22,26 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.text.DefaultCaret;
 
-import MiningMania.helpers.ServerVars;
-
 public class ServerConsole {
 
     public static JTextArea svrMonitor = new JTextArea();
     static JTextField svrInput = new JTextField();
     static JTabbedPane tabPane = new JTabbedPane();
     static JPanel logPane = new JPanel();
+    public static ConsoleClient c = null;
 
     public static void main(String[] args) throws InterruptedException {
         ServerConsole.create();
-        ServerVars.serverWindow.setVisible(true);
+        ConsoleVars.serverWindow.setVisible(true);
         ServerConsole.svrMonitor.setCaretPosition(ServerConsole.svrMonitor.getDocument().getLength());
     }
 
     public static void create() {
-        ServerVars.serverWindow = new JFrame();
-        ServerVars.serverWindow.setLayout(null);
-        ServerVars.serverWindow.setBounds(0, 0, 516, 239);
-        ServerVars.serverWindow.setTitle("Mining Mania");
-        ServerVars.serverWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ConsoleVars.serverWindow = new JFrame();
+        ConsoleVars.serverWindow.setLayout(null);
+        ConsoleVars.serverWindow.setBounds(0, 0, 516, 239);
+        ConsoleVars.serverWindow.setTitle("Mining Mania");
+        ConsoleVars.serverWindow.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         ImageIcon icon = new ImageIcon();
         tabPane.addTab("Log", icon, logPane, "Server Log");
@@ -63,15 +64,21 @@ public class ServerConsole {
         DefaultCaret caret = (DefaultCaret)svrMonitor.getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
-        ServerVars.serverWindow.add(tabPane);
+        ConsoleVars.serverWindow.add(tabPane);
         ServerConsole.svrMonitor.append("Console loaded" + "\n");
+        try {
+            System.out.println("Try connect webclient");
+            c = new ConsoleClient(new URI( "ws://localhost:8887"));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        c.connect();
     }
 
     public static void svrLog(String text){
         if (!text.matches("Saved players")) {
             ServerConsole.svrMonitor.append(new SimpleDateFormat("dd MMM yy  HH:mm:ss: ").format(new Date()) + text + "\n");
         }
-
         try {
 
             String absoPath = new File("").getAbsolutePath();
@@ -86,6 +93,5 @@ public class ServerConsole {
         } catch (IOException e) {
             //file not found message
         }
-
     }
 }
