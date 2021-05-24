@@ -7,7 +7,7 @@ import com.github.czyzby.websocket.CommonWebSockets;
 import MiningMania.client.MiningMania;
 
 /** Launches the desktop (LWJGL3) application. */
-public class Desktop {
+public class DesktopLauncher {
 	public static void main(String[] args) {
 		createApplication();
 	}

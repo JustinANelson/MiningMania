@@ -1,7 +1,7 @@
 apply plugin: 'application'
 
 sourceCompatibility = 8.0
-mainClassName = 'MiningMania.server.ServerConsole'
+mainClassName = 'MiningMania.console.ServerConsole'
 eclipse.project.name = appName + '-console'
 
 dependencies {
