@@ -5,6 +5,9 @@ import com.badlogic.gdx.Screen;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 
 import MiningMania.helpers.Variables;
 import MiningMania.networking.packets.Connect;
@@ -19,7 +22,7 @@ public class FirstScreen implements Screen {
 
 	@Override
 	public void show() {
-		// Prepare your screen here.
+
 	}
 	@Override
 	public void render(float delta) {

@@ -4,6 +4,7 @@ eclipse.project.name = appName + '-core'
 dependencies {
 	api "com.badlogicgames.gdx:gdx:$gdxVersion"
 	implementation "org.java-websocket:Java-WebSocket:1.5.2"
+	implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
 	api "com.github.tommyettinger:libgdx-utils:$utilsVersion"
 	api "com.rafaskoberg.gdx:typing-label:$typingLabelVersion"
 	api "com.github.tommyettinger:regexodus:$regExodusVersion"

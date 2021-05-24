@@ -19,7 +19,7 @@ public class WebClient extends WebSocketClient {
     }
     @Override
     public void onOpen(ServerHandshake handshakedata) {
-        send("Hello, it is me. Mario :)");
+
     }
     @Override
     public void onClose(int code, String reason, boolean remote) {
@@ -27,7 +27,7 @@ public class WebClient extends WebSocketClient {
     }
     @Override
     public void onMessage(String message) {
-        System.out.println("received message: " + message);
+        //System.out.println("received message: " + message);
     }
     @Override
     public void onMessage(ByteBuffer message) {

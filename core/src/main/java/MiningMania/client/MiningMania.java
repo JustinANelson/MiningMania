@@ -1,6 +1,7 @@
 package MiningMania.client;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 
 import java.net.URI;
@@ -50,6 +51,7 @@ public class MiningMania extends Game {
 			e.printStackTrace();
 		}
 		c.connect();
+		c.setTcpNoDelay(true);
 		setScreen(new FirstScreen());
 	}
 }
