@@ -3,8 +3,6 @@ package MiningMania.server;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import MiningMania.helpers.Variables;
-
 public class ServerLoop {
     static int x;
     static long lastUpdateTime_FPS;

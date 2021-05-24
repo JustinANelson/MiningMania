@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 
-import MiningMania.helpers.Variables;
+import MiningMania.helpers.ServerVars;
 import MiningMania.networking.ServerHandleData;
 import MiningMania.objects.Enemy;
 import MiningMania.objects.Player;
@@ -94,7 +94,7 @@ public class ServerLauncher extends WebSocketServer {
 		String host = "127.0.0.1";
 		int port = 8887;
 		server = new ServerLauncher(new InetSocketAddress(host, port));
-		Variables.running = true;
+		ServerVars.running = true;
 		server.run();
 	}
 }
