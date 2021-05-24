@@ -1,12 +1,13 @@
 package MiningMania.client;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import MiningMania.client.WebClient;
+import MiningMania.helpers.Variables;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -50,6 +51,22 @@ public class MiningMania extends Game {
 			e.printStackTrace();
 		}
 		c.connect();
+		c.setTcpNoDelay(true);
+		switch (Gdx.app.getType()) {
+			case Android:
+				System.out.println("Version: " + Gdx.app.getVersion());
+				Variables.clientType = Variables.ANDROID_CLIENT;
+				Variables.androidVersion = Gdx.app.getVersion();
+				break;
+			case Desktop:
+				Variables.clientType = Variables.DESKTOP_CLIENT;
+				break;
+			case WebGL:
+				Variables.clientType = Variables.HTML_CLIENT;
+				break;
+			default:
+				// Other platforms specific code
+		}
 		setScreen(new FirstScreen());
 	}
 }

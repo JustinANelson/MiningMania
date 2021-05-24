@@ -1,39 +1,47 @@
 package MiningMania.client;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import MiningMania.helpers.AssetsHandler;
 import MiningMania.helpers.Variables;
 import MiningMania.networking.packets.Connect;
-import MiningMania.objects.Enemy;
-import MiningMania.objects.Player;
 
 import static MiningMania.client.MiningMania.c;
 
 /** First screen of the application. Displayed after the application is created. */
 public class FirstScreen implements Screen {
+	AssetManager manager = new AssetManager();
 	public static int i = 0;
+	private Object obj;
+
 
 	@Override
 	public void show() {
-		// Prepare your screen here.
+		AssetsHandler.load();
+		System.out.println((Gdx.files.internal("icons").list().length));
 	}
 	@Override
 	public void render(float delta) {
 		// Draw your screen here. "delta" is the time since last render in seconds.
+
 		if(c.isOpen()) {
 			if (i == 0) {
 				System.out.println("Client running");
 				Connect c = new Connect();
-				c.client_mode = Variables.clientMode;
+				c.client_type = Variables.clientType;
 				c.build_version = Variables.buildVersion;
+				c.androidVersion = Variables.androidVersion;
 				sendPacket(c);
 				i = 1;
 			}
 		}
+
 	}
 	@Override
 	public void resize(int width, int height) {
@@ -56,6 +64,7 @@ public class FirstScreen implements Screen {
 		// Destroy screen's assets here.
 	}
 	public void sendPacket(Object obj) {
+		this.obj = obj;
 		if (c.isOpen()) {
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ObjectOutputStream out = null;
