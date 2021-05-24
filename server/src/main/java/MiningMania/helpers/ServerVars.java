@@ -6,4 +6,6 @@ import javax.swing.JFrame;
 
 public class ServerVars {
 
+    public static String builldVersion = "0.01";
+
 }

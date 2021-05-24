@@ -6,6 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
+import MiningMania.helpers.Variables;
+import MiningMania.networking.packets.Connect;
 import MiningMania.objects.Enemy;
 import MiningMania.objects.Player;
 
@@ -24,12 +26,11 @@ public class FirstScreen implements Screen {
 		// Draw your screen here. "delta" is the time since last render in seconds.
 		if(c.isOpen()) {
 			if (i == 0) {
-				Player p = new Player("Player");
-				Enemy mob = new Enemy("Enemy");
-				sendPacket(mob);
-				sendPacket(p);
-				sendPacket(p);
-				sendPacket(mob);
+				System.out.println("Client running");
+				Connect c = new Connect();
+				c.client_mode = Variables.clientMode;
+				c.build_version = Variables.buildVersion;
+				sendPacket(c);
 				i = 1;
 			}
 		}

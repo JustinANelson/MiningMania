@@ -2,6 +2,8 @@ package MiningMania.objects;
 
 import java.io.Serializable;
 
+import MiningMania.networking.packets.Packet;
+
 public class Enemy extends Packet implements Serializable {
     public String name;
 

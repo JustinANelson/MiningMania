@@ -7,6 +7,8 @@ import org.java_websocket.handshake.ServerHandshake;
 import java.net.URI;
 import java.nio.ByteBuffer;
 
+import MiningMania.networking.packets.Connect;
+
 public class WebClient extends WebSocketClient {
 
     public WebClient(URI serverUri, Draft draft) {
@@ -18,7 +20,6 @@ public class WebClient extends WebSocketClient {
     @Override
     public void onOpen(ServerHandshake handshakedata) {
         send("Hello, it is me. Mario :)");
-        System.out.println("new connection opened");
     }
     @Override
     public void onClose(int code, String reason, boolean remote) {
